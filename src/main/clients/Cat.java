@@ -2,11 +2,12 @@ package main.clients;
 
 import java.time.LocalDate;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements Goable {
 
     Double discount;
-    public Cat(String nickname, Owner owner, LocalDate birthDate, Illness illness, Double discount) {
-        super(nickname, owner, birthDate, illness);
+
+    public Cat(String nickName, Owner owner, LocalDate birthDate, Illness illness, Double discount) {
+        super(nickName, owner, birthDate, illness);
         this.discount = discount;
     }
 
@@ -23,25 +24,23 @@ public class Cat extends Animal {
         this.discount = discount;
     }
 
-    public static void meow(){
-        System.out.println("Мяу");
+    public void meow(){
+        System.out.println("Мяяяу!");
     }
-
 
     @Override
     public String toString() {
-        return super.toString() + "Discount("+discount+")";
+        return super.toString()+"Discount("+discount+")";
+    }
+
+
+    @Override
+    public void go() {
+
     }
 
     @Override
-    public void fly(int meters) {
-        System.out.print("Котёнок по имени " + nickname + " не умеет летать! " + "\n");
-        return;
+    public double getRunSpeed() {
+        return Goable.super.getRunSpeed();
     }
-    @Override
-    public void swim(int meters){
-        System.out.print("Котёнок по имени " + nickname + " не любит плавать!" + "\n");
-    }
-
-
 }
